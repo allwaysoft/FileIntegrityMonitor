@@ -5,3 +5,10 @@ C:\Users\Steve\source\repos\FileIntegrityMonitor\FileIntegrityMoniror.Console\ob
 C:\Users\Steve\source\repos\FileIntegrityMonitor\FileIntegrityMoniror.Console\obj\Debug\FileIntegrityMoniror.Console.csproj.CoreCompileInputs.cache
 C:\Users\Steve\source\repos\FileIntegrityMonitor\FileIntegrityMoniror.Console\obj\Debug\FileIntegrityMoniror.Console.exe
 C:\Users\Steve\source\repos\FileIntegrityMonitor\FileIntegrityMoniror.Console\obj\Debug\FileIntegrityMoniror.Console.pdb
+C:\Users\Steve\Desktop\FileIntegrityMonitor git\FileIntegrityMonitor\src\FileIntegrityMonitor\FileIntegrityMoniror.Console\bin\Debug\FileIntegrityMoniror.Console.exe.config
+C:\Users\Steve\Desktop\FileIntegrityMonitor git\FileIntegrityMonitor\src\FileIntegrityMonitor\FileIntegrityMoniror.Console\bin\Debug\FileIntegrityMoniror.Console.exe
+C:\Users\Steve\Desktop\FileIntegrityMonitor git\FileIntegrityMonitor\src\FileIntegrityMonitor\FileIntegrityMoniror.Console\bin\Debug\FileIntegrityMoniror.Console.pdb
+C:\Users\Steve\Desktop\FileIntegrityMonitor git\FileIntegrityMonitor\src\FileIntegrityMonitor\FileIntegrityMoniror.Console\obj\Debug\FileIntegrityMoniror.Console.csprojAssemblyReference.cache
+C:\Users\Steve\Desktop\FileIntegrityMonitor git\FileIntegrityMonitor\src\FileIntegrityMonitor\FileIntegrityMoniror.Console\obj\Debug\FileIntegrityMoniror.Console.csproj.CoreCompileInputs.cache
+C:\Users\Steve\Desktop\FileIntegrityMonitor git\FileIntegrityMonitor\src\FileIntegrityMonitor\FileIntegrityMoniror.Console\obj\Debug\FileIntegrityMoniror.Console.exe
+C:\Users\Steve\Desktop\FileIntegrityMonitor git\FileIntegrityMonitor\src\FileIntegrityMonitor\FileIntegrityMoniror.Console\obj\Debug\FileIntegrityMoniror.Console.pdb
