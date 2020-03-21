@@ -1,3 +1,6 @@
 #database
 *.ldf
 *.mdf
+
+#debug, build
+src/FileIntegrityMonitor/FileIntegrityMonitor/bin
