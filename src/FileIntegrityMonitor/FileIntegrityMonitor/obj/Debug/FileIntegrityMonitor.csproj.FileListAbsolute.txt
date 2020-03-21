@@ -1,0 +1,8 @@
+C:\Users\Steve\source\repos\FileIntegrityMonitor\FileIntegrityMonitor\obj\Debug\FileIntegrityMonitor.csproj.CoreCompileInputs.cache
+C:\Users\Steve\source\repos\FileIntegrityMonitor\FileIntegrityMonitor\bin\Debug\Database\FileIntegrityDB.mdf
+C:\Users\Steve\source\repos\FileIntegrityMonitor\FileIntegrityMonitor\bin\Debug\Database\FileIntegrityDB_log.ldf
+C:\Users\Steve\source\repos\FileIntegrityMonitor\FileIntegrityMonitor\bin\Debug\FileIntegrityMonitor.dll
+C:\Users\Steve\source\repos\FileIntegrityMonitor\FileIntegrityMonitor\bin\Debug\FileIntegrityMonitor.pdb
+C:\Users\Steve\source\repos\FileIntegrityMonitor\FileIntegrityMonitor\obj\Debug\FileIntegrityMonitor.dll
+C:\Users\Steve\source\repos\FileIntegrityMonitor\FileIntegrityMonitor\obj\Debug\FileIntegrityMonitor.pdb
+C:\Users\Steve\source\repos\FileIntegrityMonitor\FileIntegrityMonitor\obj\Debug\FileIntegrityMonitor.csprojAssemblyReference.cache
