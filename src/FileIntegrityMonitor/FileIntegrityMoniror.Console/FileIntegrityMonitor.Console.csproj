@@ -6,10 +6,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{01BD2ED0-7922-4C1A-A8AC-0C45E1D375F1}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>FileIntegrityMoniror.Console</RootNamespace>
-    <AssemblyName>FileIntegrityMoniror.Console</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>FileIntegrityMonitor.Console</RootNamespace>
+    <AssemblyName>FileIntegrityMonitor.Console</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,6 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FileIntegrityMonitor\FileIntegrityMonitor.csproj">
+      <Project>{1472aa4b-7a78-44f5-82f1-110471da041e}</Project>
+      <Name>FileIntegrityMonitor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

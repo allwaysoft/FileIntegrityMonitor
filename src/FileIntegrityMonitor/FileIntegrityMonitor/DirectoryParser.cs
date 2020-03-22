@@ -7,7 +7,7 @@ using System.IO;
 
 namespace FileIntegrityMonitor
 {
-    public class DirectoryParser
+    public static class DirectoryParser
     {
         public static List<String> GetAllFiles(string directoryPath, bool isRecursive = true)
         {

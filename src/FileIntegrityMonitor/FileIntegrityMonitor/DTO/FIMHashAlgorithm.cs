@@ -30,5 +30,6 @@ namespace FileIntegrityMonitor.DTO
                 return algorithm;
             }
         }
+        public string AlgorithmText { get { return AlgorithmEnum.ToString(); } }
     }
 }

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FileIntegrityMonitor.DTO;
 
-namespace FileIntegrityMoniror.Console
+namespace FileIntegrityMonitor.Console
 {
     class Program
     {
@@ -25,8 +26,13 @@ namespace FileIntegrityMoniror.Console
 
         static void Main(string[] args)
         {
+
+            Scan.StartSingleFileScan(@"C:\Program Files\Common Files\microsoft shared\ClickToRun\Updates\16.0.12527.20278\OfficeClickToRun.exe", 
+                AvailableHashAlgorithms.Sha512);
+
             FIMAgent agent = new FIMAgent();
-            agent.ParseArguments(args);
+
+            agent.Run(args);
 
         }
 

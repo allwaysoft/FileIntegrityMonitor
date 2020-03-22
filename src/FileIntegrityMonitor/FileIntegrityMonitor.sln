@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileIntegrityMonitor", "FileIntegrityMonitor\FileIntegrityMonitor.csproj", "{1472AA4B-7A78-44F5-82F1-110471DA041E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileIntegrityMoniror.Console", "FileIntegrityMoniror.Console\FileIntegrityMoniror.Console.csproj", "{01BD2ED0-7922-4C1A-A8AC-0C45E1D375F1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileIntegrityMonitor.Console", "FileIntegrityMoniror.Console\FileIntegrityMonitor.Console.csproj", "{01BD2ED0-7922-4C1A-A8AC-0C45E1D375F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

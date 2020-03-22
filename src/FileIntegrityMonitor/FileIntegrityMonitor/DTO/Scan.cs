@@ -15,7 +15,26 @@ namespace FileIntegrityMonitor.DTO
         public FIMHashAlgorithm HashAlgorithm { get; set; }
         public DateTime Time { get; set; }
 
-        public void StartScan(string filePath, AvailableHashAlgorithms hashAlgorithm)
+        public static void StartSingleFileScan(string filePath, AvailableHashAlgorithms hashAlgorithm)
+        {
+            Scan scan = new Scan
+            {
+                FilePath = filePath,
+                HashAlgorithm = new FIMHashAlgorithm { Id = (int)hashAlgorithm },
+                Time = DateTime.Now
+            };
+
+            try
+            {
+                FileScan.ScanFile(filePath, scan);
+            }
+            catch (Exception ex)
+            {
+                Logger.Log(ex.Message, LogType.Error);
+            }
+        }
+
+        public static void StartScanConsole(string filePath, bool recursive, AvailableHashAlgorithms hashAlgorithm)
         {
             Scan scan = new Scan
             {
@@ -26,13 +45,20 @@ namespace FileIntegrityMonitor.DTO
 
             //insert scan in database
 
-            List<string> allFiles = DirectoryParser.GetAllFiles(filePath, true);
+            List<string> allFiles = DirectoryParser.GetAllFiles(filePath, recursive);
+
+            int nFiles = allFiles.Count;
+            int i = 0;
 
             foreach (string file in allFiles)
             {
                 try
                 {
                     FileScan.ScanFile(filePath, scan);
+
+                    Console.SetCursorPosition(0, Console.CursorTop - 1);
+                    Console.WriteLine(Math.Ceiling(((double)i / nFiles)).ToString() + "%");
+                    Console.SetCursorPosition(0, Console.CursorTop - 1);
                 }
                 catch (Exception ex)
                 {
