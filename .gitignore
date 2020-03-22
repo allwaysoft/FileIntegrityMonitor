@@ -4,3 +4,6 @@
 
 #debug, build
 src/FileIntegrityMonitor/FileIntegrityMonitor/bin
+src/FileIntegrityMonitor/FileIntegrityMonitor/obj
+src/FileIntegrityMonitor/FileIntegrityMoniror.Console/bin
+src/FileIntegrityMonitor/FileIntegrityMoniror.Console/obj
