@@ -1,0 +1,15 @@
+C:\Users\Steve\Desktop\FileIntegrityMonitor git\FileIntegrityMonitor\src\FileIntegrityMonitor\FileIntegrityMonitor.UI\obj\Debug\FileIntegrityMonitor.UI.Form1.resources
+C:\Users\Steve\Desktop\FileIntegrityMonitor git\FileIntegrityMonitor\src\FileIntegrityMonitor\FileIntegrityMonitor.UI\obj\Debug\FileIntegrityMonitor.UI.Properties.Resources.resources
+C:\Users\Steve\Desktop\FileIntegrityMonitor git\FileIntegrityMonitor\src\FileIntegrityMonitor\FileIntegrityMonitor.UI\obj\Debug\FileIntegrityMonitor.UI.csproj.GenerateResource.cache
+C:\Users\Steve\Desktop\FileIntegrityMonitor git\FileIntegrityMonitor\src\FileIntegrityMonitor\FileIntegrityMonitor.UI\obj\Debug\FileIntegrityMonitor.UI.csproj.CoreCompileInputs.cache
+C:\Users\Steve\Desktop\FileIntegrityMonitor git\FileIntegrityMonitor\src\FileIntegrityMonitor\FileIntegrityMonitor.UI\bin\Debug\FileIntegrityMonitor.UI.exe.config
+C:\Users\Steve\Desktop\FileIntegrityMonitor git\FileIntegrityMonitor\src\FileIntegrityMonitor\FileIntegrityMonitor.UI\bin\Debug\FileIntegrityMonitor.UI.exe
+C:\Users\Steve\Desktop\FileIntegrityMonitor git\FileIntegrityMonitor\src\FileIntegrityMonitor\FileIntegrityMonitor.UI\bin\Debug\FileIntegrityMonitor.UI.pdb
+C:\Users\Steve\Desktop\FileIntegrityMonitor git\FileIntegrityMonitor\src\FileIntegrityMonitor\FileIntegrityMonitor.UI\obj\Debug\FileIntegrityMonitor.UI.exe
+C:\Users\Steve\Desktop\FileIntegrityMonitor git\FileIntegrityMonitor\src\FileIntegrityMonitor\FileIntegrityMonitor.UI\obj\Debug\FileIntegrityMonitor.UI.pdb
+C:\Users\Steve\Desktop\FileIntegrityMonitor git\FileIntegrityMonitor\src\FileIntegrityMonitor\FileIntegrityMonitor.UI\bin\Debug\Database\FileIntegrityDB.mdf
+C:\Users\Steve\Desktop\FileIntegrityMonitor git\FileIntegrityMonitor\src\FileIntegrityMonitor\FileIntegrityMonitor.UI\bin\Debug\Database\FileIntegrityDB_log.ldf
+C:\Users\Steve\Desktop\FileIntegrityMonitor git\FileIntegrityMonitor\src\FileIntegrityMonitor\FileIntegrityMonitor.UI\bin\Debug\FileIntegrityMonitor.dll
+C:\Users\Steve\Desktop\FileIntegrityMonitor git\FileIntegrityMonitor\src\FileIntegrityMonitor\FileIntegrityMonitor.UI\bin\Debug\FileIntegrityMonitor.pdb
+C:\Users\Steve\Desktop\FileIntegrityMonitor git\FileIntegrityMonitor\src\FileIntegrityMonitor\FileIntegrityMonitor.UI\obj\Debug\FileIntegrityMonitor.UI.csprojAssemblyReference.cache
+C:\Users\Steve\Desktop\FileIntegrityMonitor git\FileIntegrityMonitor\src\FileIntegrityMonitor\FileIntegrityMonitor.UI\obj\Debug\FileIntegrityMonitor.UI.csproj.CopyComplete

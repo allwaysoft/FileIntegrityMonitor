@@ -26,9 +26,7 @@ namespace FileIntegrityMonitor.Console
 
         static void Main(string[] args)
         {
-
-            Scan.StartSingleFileScan(@"C:\Program Files\Common Files\microsoft shared\ClickToRun\Updates\16.0.12527.20278\OfficeClickToRun.exe", 
-                AvailableHashAlgorithms.Sha512);
+            SetDataBasePath();
 
             FIMAgent agent = new FIMAgent();
 
@@ -36,6 +34,11 @@ namespace FileIntegrityMonitor.Console
 
         }
 
-
+        static void SetDataBasePath()
+        {
+            string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string path = (System.IO.Path.GetDirectoryName(executable));
+            AppDomain.CurrentDomain.SetData("DataDirectory", path);
+        }
     }
 }

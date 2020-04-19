@@ -3,6 +3,7 @@
 *.mdf
 
 #debug, build
+src/FileIntegrityMonitor/.vs
 src/FileIntegrityMonitor/FileIntegrityMonitor/bin
 src/FileIntegrityMonitor/FileIntegrityMonitor/obj
 src/FileIntegrityMonitor/FileIntegrityMoniror.Console/bin

@@ -11,9 +11,9 @@ namespace FileIntegrityMonitor.DAL
 {
     public class DALScan : DALBase<Scan>
     {
-        private const string _partialSelect = @"SELECT[ID], [FilePath], [HashingAlgorithmId], [HashAlgorithm].[Name]
-            As HashAlgorithmName, [Time] FROM[Scans] INNER JOIN[HashAlgorithm] 
-            ON [Scan].[HashAlgorithmId] = [HashAlgorithm].[Id]";
+        private const string _partialSelect = @"SELECT [Scan]. [ID], [FilePath], [HashAlgorithmId], [HashAlgorithms].[Name]
+            As HashAlgorithmName, [Time] FROM[Scan] INNER JOIN[HashAlgorithms] 
+            ON [Scan].[HashAlgorithmId] = [HashAlgorithms].[Id]";
 
         public List<Scan> SelectAllScans()
         {
@@ -40,10 +40,10 @@ namespace FileIntegrityMonitor.DAL
             };
         }
 
-        public bool InsertScan(Scan scan)
+        public int InsertScan(Scan scan)
         {
-            return this.ExecQueryOneRecord(@"INSERT INTO [Scans] ([FilePath], [HashAlgorithmId], [Time])
- VALUES(@FilePath, @HashAlgorithmId, @Time);", new Dictionary<string, object>()
+            return this.ExecQueryGetScalar(@"INSERT INTO [Scan] ([FilePath], [HashAlgorithmId], [Time])
+ VALUES(@FilePath, @HashAlgorithmId, @Time); SELECT SCOPE_IDENTITY() AS INT;", new Dictionary<string, object>()
             {
                 { "@Filepath", scan.FilePath },
                 { "@HashAlgorithmId", scan.HashAlgorithm.Id },
@@ -53,7 +53,7 @@ namespace FileIntegrityMonitor.DAL
 
         public bool DeleteScan(Scan scan)
         {
-            return this.ExecQueryOneRecord(@"DELETE FROM [Scans] WHERE [Id] = @Id;",
+            return this.ExecQueryOneRecord(@"DELETE FROM [Scan] WHERE [Id] = @Id;",
                 new Dictionary<string, object>() { { "@Id", scan.Id } });
         }
     }

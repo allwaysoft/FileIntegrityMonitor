@@ -11,10 +11,12 @@ namespace FileIntegrityMonitor.DAL
 {
     class DALFileScan : DALBase<FileScan>
     {
+        private const string _partialSelect = @"SELECT [Id], [FilePath], [Checksum], [FileSize], 
+[Time], [ScanId] FROM [FileScan]";
+
         public List<FileScan> SelectAllFileScansFromScan(int scanId)
         {
-            return this.SelectMultipleRecords(@"SELECT [Id], [FilePath], [Checksum], [FileSize], 
-[Time], [ScanId] FROM [FileScan] WHERE [ScanId] = @ScanId;", 
+            return this.SelectMultipleRecords(_partialSelect + " WHERE [ScanId] = @ScanId;", 
                 new Dictionary<string, object>() { { "@ScanId", scanId } }, this.GetFileScanFromReader);
         }
 
@@ -33,7 +35,7 @@ namespace FileIntegrityMonitor.DAL
 
         public bool InsertFileScan(FileScan fileScan)
         {
-            return this.ExecQueryOneRecord(@"INSERT INTO [FileeScan] ([FilePath], [Checksum], [FileSize], [Time], 
+            return this.ExecQueryOneRecord(@"INSERT INTO [FileScan] ([FilePath], [Checksum], [FileSize], [Time], 
 [ScanId]) VALUES(@FilePath, @checksum, @FileSize, @Time, @ScanId);", new Dictionary<string, object>()
             {
                 { "@Filepath", fileScan.FilePath },
@@ -42,6 +44,17 @@ namespace FileIntegrityMonitor.DAL
                 { "@Time", fileScan.Time },
                 { "@ScanId", fileScan.ScanId }
             });
+        }
+
+        public FileScan GetLatestPreviousFileScan(DateTime latestTime, int hashAlgorithmId)
+        {
+            return this.SelectSingleRecord(@"SELECT TOP 1 [FileScan].[Id], [FilePath], [Checksum], [FileSize], 
+[FileScan].[Time], [ScanId] FROM [FileScan] INNER JOIN [Scan] ON [FileScan].[ScanId] = [Scan].[Id] 
+WHERE [FileScan].[Time] < @LatestTime AND [Scan].[HashAlgorithmId] = @HashAlgorithmId 
+ORDER BY [TIME] DESC;",
+            new Dictionary<string, object> { { "@LatestTime", latestTime },
+                { "HashAlgorithmId", hashAlgorithmId } },
+            this.GetFileScanFromReader);
         }
     }
 }

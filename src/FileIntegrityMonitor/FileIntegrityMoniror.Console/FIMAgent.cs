@@ -102,7 +102,7 @@ namespace FileIntegrityMonitor.Console
                             " and must be enclosed in \" and \"!");
                     }
 
-                    DirectoryToScan = nextArg.Trim('\"');
+                    DirectoryToScan = nextArg;
 
                     if (!Directory.Exists(DirectoryToScan))
                     {
@@ -120,14 +120,13 @@ namespace FileIntegrityMonitor.Console
                             " and must be enclosed in \" and \"!");
                     }
 
-                    DirectoryToScan = nextArg.Trim('\"');
+                    DirectoryToScan = nextArg;
 
                     if (!Directory.Exists(DirectoryToScan))
                     {
                         throw new FileNotFoundException("File to scan not found!");
                     }
                 }
-                
             }
 
             return true;
@@ -205,13 +204,14 @@ namespace FileIntegrityMonitor.Console
             }
         }
 
-        private void DisplayScansConsole(List<Scan> scans)
+        public void DisplayScansConsole(List<Scan> scans)
         {
+            System.Console.WriteLine("Available Past Scans:");
+            System.Console.WriteLine("====================================================");
+
             foreach (Scan scan in scans)
             {
-                System.Console.WriteLine("Available Past Scans:");
-                System.Console.WriteLine("====================================================");
-                System.Console.WriteLine(String.Format("%d\t\t%s\t\t%s\t\t%s",
+                System.Console.WriteLine(String.Format("{0}\t\t{1}\t\t{2}\t\t{3}",
                     scan.Id, ShortenPath(scan.FilePath), scan.HashAlgorithm.AlgorithmText,
                     String.Format("{0:dd/MM/yyyy HH:mm}", scan.Time)
                     ));

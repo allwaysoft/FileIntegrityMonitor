@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace FileIntegrityMonitor.DAL
 {
@@ -14,7 +15,21 @@ namespace FileIntegrityMonitor.DAL
             Func<SqlDataReader, T> getItemFromReader)
         {
             List<T> items = new List<T>();
-            SqlDataReader reader = GetReaderFromSelect(query, parameters);
+
+            using (SqlConnection connection = CreateConnection())
+            {
+                SqlCommand command = CreateCommandWithParameters(query, connection, parameters);
+
+                items = GetMultipleItemsFromReader(command, getItemFromReader);
+            }
+
+            return items;
+        }
+
+        private List<T> GetMultipleItemsFromReader(SqlCommand command, Func<SqlDataReader, T> getItemFromReader)
+        {
+            List<T> items = new List<T>();
+            SqlDataReader reader = command.ExecuteReader();
 
             while (reader.Read())
             {
@@ -29,7 +44,21 @@ namespace FileIntegrityMonitor.DAL
             Func<SqlDataReader, T> getItemFromReader)
         {
             T item = default(T);
-            SqlDataReader reader = GetReaderFromSelect(query, parameters);
+
+            using (SqlConnection connection = CreateConnection())
+            {
+                SqlCommand command = CreateCommandWithParameters(query, connection, parameters);
+
+                item = GetSingleItemFromReader(command, getItemFromReader);
+            }
+
+            return item;
+        }
+
+        private T GetSingleItemFromReader(SqlCommand command, Func<SqlDataReader, T> getItemFromReader)
+        {
+            T item = default(T);
+            SqlDataReader reader = command.ExecuteReader();
 
             if (reader.Read())
             {
@@ -41,32 +70,64 @@ namespace FileIntegrityMonitor.DAL
 
         public bool ExecQueryOneRecord(string query, Dictionary<string, object> parameters)
         {
-            SqlCommand command = GetCommandWithParameters(query, parameters);
-            int affectedRows = command.ExecuteNonQuery();
+            int affectedRows = 0;
+
+            using (SqlConnection connection = CreateConnection())
+            {
+                SqlCommand command = CreateCommandWithParameters(query, connection, parameters);
+
+                affectedRows = command.ExecuteNonQuery();
+            }
 
             return (affectedRows == 1);
         }
 
+        public int ExecQueryGetScalar(string query, Dictionary<string, object> parameters)
+        {
+            int i = 0;
+
+            using (SqlConnection connection = CreateConnection())
+            {
+                SqlCommand command = CreateCommandWithParameters(query, connection, parameters);
+
+                i = Convert.ToInt32(command.ExecuteScalar());
+            }
+
+            return i;
+        }
+
         private SqlDataReader GetReaderFromSelect(string query, Dictionary<string, object> parameters)
         {
-            SqlCommand command = GetCommandWithParameters(query, parameters);
-            SqlDataReader  reader = command.ExecuteReader();
+            SqlCommand command = null;
+            SqlDataReader reader = null;
+
+            using (SqlConnection connection = CreateConnection())
+            {
+                SqlCommand cmd = CreateCommandWithParameters(query, connection, parameters);
+
+                reader = command.ExecuteReader();
+            }
 
             return reader;
         }
 
-        private SqlCommand GetCommandWithParameters(string query, Dictionary<string, object> parameters)
+        private SqlConnection CreateConnection()
         {
-            SqlCommand command = null;
+            string connectionString = ConfigurationManager.ConnectionStrings["FIM"].ConnectionString;
+            SqlConnection connection = new SqlConnection(connectionString);
 
-            using (SqlConnection connection = new SqlConnection("blabla"))
+            return connection;
+        }
+
+        private SqlCommand CreateCommandWithParameters(string query, SqlConnection connection, 
+            Dictionary<string, object> parameters)
+        {
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Connection.Open();
+
+            foreach (string paramKey in parameters.Keys)
             {
-                command = new SqlCommand(query, connection);
-                connection.Open();
-                foreach (string paramKey in parameters.Keys)
-                {
-                    command.Parameters.AddWithValue(paramKey, parameters[paramKey]);
-                }
+                command.Parameters.AddWithValue(paramKey, parameters[paramKey]);
             }
 
             return command;

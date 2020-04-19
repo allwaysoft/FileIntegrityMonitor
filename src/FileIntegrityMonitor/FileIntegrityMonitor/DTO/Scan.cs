@@ -43,22 +43,25 @@ namespace FileIntegrityMonitor.DTO
                 Time = DateTime.Now
             };
 
+            scan.Insert();
+
             //insert scan in database
 
             List<string> allFiles = DirectoryParser.GetAllFiles(filePath, recursive);
 
             int nFiles = allFiles.Count;
             int i = 0;
-
+            Console.WriteLine("Scanning ...");
             foreach (string file in allFiles)
             {
                 try
                 {
-                    FileScan.ScanFile(filePath, scan);
-
+                    FileScan.ScanFile(file, scan);
+                    
+                    Console.WriteLine(Math.Ceiling(((double)i / nFiles) * 100).ToString() + "%");
                     Console.SetCursorPosition(0, Console.CursorTop - 1);
-                    Console.WriteLine(Math.Ceiling(((double)i / nFiles)).ToString() + "%");
-                    Console.SetCursorPosition(0, Console.CursorTop - 1);
+                    System.Threading.Thread.Sleep(50);
+                    i++;
                 }
                 catch (Exception ex)
                 {
@@ -69,9 +72,35 @@ namespace FileIntegrityMonitor.DTO
             }
         }
 
-        public bool Insert()
+        public void CompareAllFilesFromLatestScanWithAllPreviousFileScans()
         {
-            return new DALScan().InsertScan(this);
+            List<FileScan> allFileScans = FileScan.GetAllFileScansFromScan(this.Id);
+            //Logger.Log("Changed Files\n");
+
+            foreach (FileScan fileScan in allFileScans)
+            {
+                FileScan other = FileScan.GetLatestPreviousFileScan(fileScan.Time, this.HashAlgorithm);
+
+                if (other == null)
+                {
+                    Logger.Log("PREVIOUSLY NOT FOUND;;" + fileScan.FilePath,
+                        LogType.Warning);
+
+                    continue;
+                }
+
+                if (fileScan.Checksum != other.Checksum)
+                {
+                    string log = String.Format("CHANGED FILE;{0}",
+                        fileScan.FilePath);
+                    Logger.Log(log, LogType.Notification);
+                }
+            }
+        }
+
+        public void Insert()
+        {
+            this.Id = new DALScan().InsertScan(this);
         }
 
         public bool Delete()

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileIntegrityMonitor", "Fil
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileIntegrityMonitor.Console", "FileIntegrityMoniror.Console\FileIntegrityMonitor.Console.csproj", "{01BD2ED0-7922-4C1A-A8AC-0C45E1D375F1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileIntegrityMonitor.UI", "FileIntegrityMonitor.UI\FileIntegrityMonitor.UI.csproj", "{DF8BFAB1-D30B-44D0-B4C2-082CB151D0E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{01BD2ED0-7922-4C1A-A8AC-0C45E1D375F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01BD2ED0-7922-4C1A-A8AC-0C45E1D375F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01BD2ED0-7922-4C1A-A8AC-0C45E1D375F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF8BFAB1-D30B-44D0-B4C2-082CB151D0E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF8BFAB1-D30B-44D0-B4C2-082CB151D0E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF8BFAB1-D30B-44D0-B4C2-082CB151D0E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF8BFAB1-D30B-44D0-B4C2-082CB151D0E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

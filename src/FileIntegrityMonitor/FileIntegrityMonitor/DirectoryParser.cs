@@ -22,19 +22,32 @@ namespace FileIntegrityMonitor
         {
             List<String> files = new List<String>();
 
-            foreach (string filePath in Directory.GetFiles(directoryPath))
+            try
             {
-                if (Directory.Exists(filePath) && isRecursive)
+                if (isRecursive)
                 {
-                    List<String> filesInDirectory = GetAllFilesFromDirectory(filePath, true);
-
-                    foreach (string fileInDirectory in filesInDirectory)
+                    foreach (string folderPath in Directory.GetDirectories(directoryPath))
                     {
-                        files.Add(fileInDirectory);
+                        if (Directory.Exists(folderPath))
+                        {
+                            List<String> filesInDirectory = GetAllFilesFromDirectory(folderPath, true);
+
+                            foreach (string file in filesInDirectory)
+                            {
+                                files.Add(file);
+                            }
+                        }
                     }
                 }
 
-                files.Add(filePath);
+                foreach (string filePath in Directory.GetFiles(directoryPath))
+                {
+                    files.Add(filePath);
+                }
+            }
+            catch (Exception ex)
+            {
+
             }
 
             return files;

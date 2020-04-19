@@ -16,13 +16,14 @@ namespace FileIntegrityMonitor.DTO
     public class FIMHashAlgorithm
     {
         public int Id { get; set; }
-        public AvailableHashAlgorithms AlgorithmEnum { get { return (AvailableHashAlgorithms)Id; } }
+        public string AlgorithmText { get; set; }
+
         public HashAlgorithm Algorithm
         {
             get {
                 HashAlgorithm algorithm = new SHA256Managed();
 
-                if (AlgorithmEnum == AvailableHashAlgorithms.Sha512)
+                if (AlgorithmText.ToLower() == "sha512")
                 {
                     algorithm = new SHA512Managed();
                 }
@@ -30,6 +31,5 @@ namespace FileIntegrityMonitor.DTO
                 return algorithm;
             }
         }
-        public string AlgorithmText { get { return AlgorithmEnum.ToString(); } }
     }
 }

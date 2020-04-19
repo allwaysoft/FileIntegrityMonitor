@@ -38,6 +38,7 @@ namespace FileIntegrityMonitor.DTO
                 Checksum = checksum,
                 FileSize = fileSize,
                 ScanId = scan.Id,
+                Time = DateTime.Now
             };
 
             if (!fileScan.Insert())
@@ -46,10 +47,19 @@ namespace FileIntegrityMonitor.DTO
             }
         }
 
- 
         private bool Insert()
         {
             return new DALFileScan().InsertFileScan(this);
+        }
+
+        public static List<FileScan> GetAllFileScansFromScan(int scanId)
+        {
+            return new DALFileScan().SelectAllFileScansFromScan(scanId);
+        }
+
+        public static FileScan GetLatestPreviousFileScan(DateTime time, FIMHashAlgorithm algorithm)
+        {
+            return new DALFileScan().GetLatestPreviousFileScan(time, algorithm.Id);
         }
     }
 }
