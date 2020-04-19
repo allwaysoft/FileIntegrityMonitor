@@ -10,3 +10,5 @@ src/FileIntegrityMonitor/FileIntegrityMoniror.Console/bin
 src/FileIntegrityMonitor/FileIntegrityMoniror.Console/obj
 src/FileIntegrityMonitor/FileIntegrityMonitor.Console/bin
 src/FileIntegrityMonitor/FileIntegrityMonitor.Console/obj
+src/FileIntegrityMonitor/FileIntegrityMonitor.UI/bin
+src/FileIntegrityMonitor/FileIntegrityMonitor.UI/obj
